@@ -23,11 +23,19 @@ class MoodSelectionViewController: UIViewController {
             }
         }
     }
-    var moodButtons: [UIButton] = []
+    
+    var moodButtons: [UIButton] = [] {
+        didSet {
+            oldValue.forEach { $0.removeFromSuperview()
+            moodButtons.forEach { stackView.addArrangedSubview($0)}
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        moods = [.happy, .sad, .angry, .goofy, .crying, .confused, .sleepy, .meh]
+        addMoodButton.layer.cornerRadius = addMoodButton.bounds.height / 2
     }
 
 
