@@ -28,9 +28,8 @@ class MoodSelectionViewController: UIViewController {
     
     var moodButtons: [UIButton] = [] {
         didSet {
-            oldValue.forEach { $0.removeFromSuperview()
+            oldValue.forEach { $0.removeFromSuperview() }
             moodButtons.forEach { stackView.addArrangedSubview($0)}
-            }
         }
     }
     
@@ -60,7 +59,5 @@ class MoodSelectionViewController: UIViewController {
         moods = [.happy, .sad, .angry, .goofy, .crying, .confused, .sleepy, .meh]
         addMoodButton.layer.cornerRadius = addMoodButton.bounds.height / 2
     }
-
-
 }
 

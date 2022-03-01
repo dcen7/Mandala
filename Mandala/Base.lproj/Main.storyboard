@@ -60,6 +60,10 @@
                             <constraint firstItem="RUC-Nq-61V" firstAttribute="top" secondItem="5C9-O2-4K4" secondAttribute="bottom" constant="20" id="qT5-Ec-YjI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addMoodButton" destination="5C9-O2-4K4" id="snb-0M-cs4"/>
+                        <outlet property="stackView" destination="sFi-I5-gF1" id="5Ic-Jo-MaO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
