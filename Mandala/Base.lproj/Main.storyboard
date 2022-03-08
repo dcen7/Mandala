@@ -23,7 +23,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-O2-4K4">
-                                <rect key="frame" x="103.5" y="728" width="207" height="48"/>
+                                <rect key="frame" x="103.5" y="720" width="207" height="48"/>
                                 <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="uli-Yb-ngO"/>
@@ -36,23 +36,27 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUC-Nq-61V">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="788" width="414" height="108"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dhs-pq-b3d">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sFi-I5-gF1">
-                                            <rect key="frame" x="8" y="8" width="398" height="50"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-MV-hpJ" customClass="ImageSelector" customModule="Mandala" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="16" width="398" height="50"/>
+                                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="VVd-Rb-pry"/>
+                                                <constraint firstAttribute="height" constant="50" id="t6k-vq-Mcm"/>
                                             </constraints>
-                                        </stackView>
+                                            <connections>
+                                                <action selector="moodsSelectionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="B1d-id-RTi"/>
+                                            </connections>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="sFi-I5-gF1" secondAttribute="trailing" id="D6r-4n-Jbd"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="sFi-I5-gF1" secondAttribute="bottom" id="Dp3-nV-FBG"/>
-                                        <constraint firstItem="sFi-I5-gF1" firstAttribute="top" secondItem="dhs-pq-b3d" secondAttribute="top" constant="8" id="LZU-27-Pvs"/>
-                                        <constraint firstItem="sFi-I5-gF1" firstAttribute="leading" secondItem="dhs-pq-b3d" secondAttribute="leadingMargin" id="oy7-nu-ukr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bIW-MV-hpJ" secondAttribute="bottom" id="KvA-nY-faW"/>
+                                        <constraint firstItem="bIW-MV-hpJ" firstAttribute="leading" secondItem="dhs-pq-b3d" secondAttribute="leadingMargin" id="OeT-zS-ewh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bIW-MV-hpJ" secondAttribute="trailing" id="bOr-9l-Hvl"/>
+                                        <constraint firstItem="bIW-MV-hpJ" firstAttribute="top" secondItem="dhs-pq-b3d" secondAttribute="topMargin" constant="8" id="qfb-aR-yUb"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="regular"/>
@@ -75,12 +79,12 @@
                     </view>
                     <connections>
                         <outlet property="addMoodButton" destination="5C9-O2-4K4" id="snb-0M-cs4"/>
-                        <outlet property="stackView" destination="sFi-I5-gF1" id="5Ic-Jo-MaO"/>
+                        <outlet property="moodSelector" destination="bIW-MV-hpJ" id="jp3-Pu-NfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="77"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="76.339285714285708"/>
         </scene>
         <!--Mood List View Controller-->
         <scene sceneID="2u8-dk-QOt">
@@ -130,6 +134,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
