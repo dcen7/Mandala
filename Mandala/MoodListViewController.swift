@@ -19,6 +19,7 @@ class MoodListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.imageView?.image = moodEntry.mood.image
         cell.textLabel?.text = "I was \(moodEntry.mood.name)"
+        cell.backgroundColor = moodEntry.mood.color
         let dateString = DateFormatter.localizedString(from: moodEntry.timestamp, dateStyle: .medium, timeStyle: .short)
         cell.detailTextLabel?.text = "on \(dateString)"
         return cell

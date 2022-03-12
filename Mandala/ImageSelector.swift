@@ -9,6 +9,12 @@ import UIKit
 
 class ImageSelector: UIControl {
     
+    var highlightColors: [UIColor] = [] {
+        didSet {
+            highlightView.backgroundColor = highlightColor(forIndex: selectedIndex)
+        }
+    }
+    
     var selectedIndex = 0 {
         didSet {
             if selectedIndex < 0 {
@@ -17,6 +23,8 @@ class ImageSelector: UIControl {
             if selectedIndex >= imageButtons.count {
                 selectedIndex = imageButtons.count - 1
             }
+            
+            highlightView.backgroundColor = highlightColor(forIndex: selectedIndex)
             
             let imageButton = imageButtons[selectedIndex]
             highlightViewXConstraint = highlightView.centerXAnchor.constraint(equalTo: imageButton.centerXAnchor)
@@ -58,7 +66,6 @@ class ImageSelector: UIControl {
     
     private let highlightView: UIView = {
         let view = UIView()
-        view.backgroundColor = view.tintColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -71,6 +78,21 @@ class ImageSelector: UIControl {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureViewHierarchy()
+    }
+    
+    private var highlightViewXConstraint: NSLayoutConstraint! {
+        didSet {
+            oldValue?.isActive = false
+            highlightViewXConstraint.isActive = true
+        }
+    }
+    
+    private func highlightColor(forIndex index: Int) -> UIColor {
+        guard index >= 0 && index < highlightColors.count else {
+            return UIColor.blue.withAlphaComponent(0.6)
+        }
+        
+        return highlightColors[index]
     }
     
     private func configureViewHierarchy() {
@@ -88,13 +110,6 @@ class ImageSelector: UIControl {
         ])
     }
     
-    private var highlightViewXConstraint: NSLayoutConstraint! {
-        didSet {
-            oldValue?.isActive = false
-            highlightViewXConstraint.isActive = true
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -105,7 +120,13 @@ class ImageSelector: UIControl {
         guard let buttonIndex = imageButtons.firstIndex(of: sender) else {
             preconditionFailure("The buttons and images are not parallel")
         }
-        selectedIndex = buttonIndex
+        
+        let selectionAnimator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 0.7, animations: {
+            self.selectedIndex = buttonIndex
+            self.layoutIfNeeded()
+        })
+        selectionAnimator.startAnimation()
+        
         sendActions(for: .valueChanged)
     }
 }

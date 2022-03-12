@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4j9-Ne-PAh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <connections>
                                     <segue destination="A9f-VH-7YR" kind="embed" identifier="embedContainerViewController" id="3Fk-rw-eJB"/>
                                 </connections>
@@ -68,10 +68,10 @@
                             <constraint firstAttribute="trailing" secondItem="4j9-Ne-PAh" secondAttribute="trailing" id="3bt-Y2-YEQ"/>
                             <constraint firstAttribute="bottom" secondItem="RUC-Nq-61V" secondAttribute="bottom" id="6Sh-ew-dZ2"/>
                             <constraint firstItem="5C9-O2-4K4" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="HFO-zu-dCt"/>
-                            <constraint firstItem="4j9-Ne-PAh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TwQ-kp-7B6"/>
                             <constraint firstAttribute="trailing" secondItem="RUC-Nq-61V" secondAttribute="trailing" id="cnW-Sl-P5p"/>
                             <constraint firstItem="RUC-Nq-61V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dIm-Xn-zoJ"/>
                             <constraint firstItem="4j9-Ne-PAh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e6n-5s-EjH"/>
+                            <constraint firstItem="4j9-Ne-PAh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="fzD-vR-gW9"/>
                             <constraint firstItem="5C9-O2-4K4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ihW-iP-G1j"/>
                             <constraint firstItem="RUC-Nq-61V" firstAttribute="top" secondItem="5C9-O2-4K4" secondAttribute="bottom" constant="20" id="qT5-Ec-YjI"/>
                         </constraints>
@@ -90,7 +90,7 @@
             <objects>
                 <tableViewController id="A9f-VH-7YR" customClass="MoodListViewController" customModule="Mandala" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="oex-5f-JIQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
